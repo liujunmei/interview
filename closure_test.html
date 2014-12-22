@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>点击每一列的时候alert其index</title>
+    </head>
+    <body>
+        <ul id="test">
+            <li>这是第一条</li>
+            <li>这是第二条</li>
+            <li>这是第三条</li>
+        </ul>
+        <script type="text/javascript">
+            var alertIndex = function(){
+                var liList = document.getElementById('test').getElementsByTagName('li'),
+                        len = liList.length,
+                        i = 0;
+                for( i; i<len; i++ ){
+                    liList[i].onclick = function(i){
+                        return function(){
+                            alert(i);
+                        };
+                    }(i);
+                }
+            };
+            alertIndex();
+        </script>
+    </body>
+</html>
