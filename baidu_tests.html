@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>百度前端面试题</title>
+    <style type="text/css">
+        #demo{
+            height:100px;
+            width:100px;
+            background-color: #fff;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #000;
+            position: absolute;
+            left:100px;
+        }
+        #demo:before{
+            content:'';
+            height:0;
+            width:0;
+            border-top: 20px solid white;
+            border-left: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-right: 20px solid transparent;
+            right:-37px;
+            top:20px;
+            -webkit-transform: rotate(-90deg);
+            position: absolute;
+            z-index: 10;
+        }
+        #demo:after{
+            content: '';
+            height: 0;
+            width: 0;
+            border-top: 20px solid black;
+            border-left: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-right: 20px solid transparent;
+            right: -40px;
+            top: 20px;
+            -webkit-transform: rotate(-90deg);
+            position: absolute;
+            z-index: 5;
+        }
+        /*#demo:before{*/
+        /*content:'';*/
+        /*height:0;*/
+        /*width:0;*/
+        /*border-top: 10px solid white;*/
+        /*border-left: 10px solid transparent;*/
+        /*border-bottom: 10px solid transparent;*/
+        /*border-right:10px solid white;*/
+        /*right:-7px;*/
+        /*top:20px;*/
+        /*-webkit-transform: rotate(45deg);*/
+        /*position: absolute;*/
+        /*z-index: 10;*/
+        /*}*/
+        /*#demo:after{*/
+        /*content:'';*/
+        /*height:0;*/
+        /*width:0;*/
+        /*border-top: 10px solid black;*/
+        /*border-left: 10px solid transparent;*/
+        /*border-bottom: 10px solid transparent;*/
+        /*border-right:10px solid black;*/
+        /*right:-10px;*/
+        /*top:20px;*/
+        /*-webkit-transform: rotate(45deg);*/
+        /*position: absolute;*/
+        /*z-index: 5;*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            请用CSS实现如下图的样式，相关尺寸如图示，其中dom结构为：
+            <p>&lt;div id="demo"&gt;&lt;/div&gt;</p>
+            <div>
+                <img src="image/baidu1.png">
+            </div>
+        </div>
+        <div>
+            <p>解答：</p>
+            <div style="display: none;">
+                <p>思路：</p>
+                <p>1、利用before和after向元素添加伪元素；</p>
+                <p>2、带边框的三角形可以用两个不同颜色的实心三角形重叠而成</p>
+            </div>
+            <div id="demo"></div>
+        </div>
+    </div>
+</body>
+</html>

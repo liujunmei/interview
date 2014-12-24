@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>简单的表格排序功能</title>
+    <style type="text/css">
+        body { text-align: center; }
+        #table { border: 1px solid #ccc; margin: 200px auto; border-collapse: collapse; }
+        #table thead{ background: #ddd; }
+        #table thead td{ cursor: pointer; }
+        #table tr:nth-child(even) { background: #F7F0F0; }
+        #table td{ border: 1px solid #ccc; padding: 4px 60px; }
+    </style>
+</head>
+<body>
+    <table id="table">
+        <thead>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>智力</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>19</td>
+                <td>60</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>28</td>
+                <td>65</td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>24</td>
+                <td>63</td>
+            </tr>
+            <tr>
+                <td>赵钱</td>
+                <td>26</td>
+                <td>60</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+        (function(){
+            var table = document.getElementById('table'),
+                thead = table.tHead,
+                theadTds = thead.getElementsByTagName('td'),
+                tbody = table.tBodies[0],
+                rows = tbody.rows,
+                rowsLen = rows.length,
+                arr = [],//存放每个arrow
+                isAsc = true;//是否升序
+            [].forEach.call(theadTds, function(curTd, index, array){
+                curTd.addEventListener('click', function(){
+                    var i = 0,
+                        j = 0;
+                    for( i; i<rowsLen; i++ ){
+                        arr.push(rows[i]);
+                    };
+                    arr.sort(function(td1, td2){
+                        if(isAsc){
+                            return parseInt(td1.cells[0].innerHTML) - parseInt(td2.cells[0].innerHTML);
+                        }else{
+                            return parseInt(td2.cells[0].innerHTML) - parseInt(td1.cells[0].innerHTML);
+                        }
+                    });
+                    tbody.innerHTML = '';
+                    for( j; j<rowsLen; j++ ){
+                        tbody.appendChild(arr[j]);
+                    };
+                    isAsc = !isAsc;
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
